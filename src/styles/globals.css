@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold: #c9a96e;
+    --gold-light: #e8d5b0;
+    --luxury-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: #c9a96e;
+    color: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c9a96e40;
+    border-radius: 2px;
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .section-label {
+    @apply flex items-center gap-4 text-[0.65rem] tracking-[0.35em] uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .section-label::before {
+    content: '';
+    @apply block w-10 h-px;
+    background: var(--gold);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-3 px-9 py-4 text-[0.65rem] tracking-[0.2em] uppercase font-medium;
+    @apply relative overflow-hidden;
+    background: var(--gold);
+    color: #0a0a0a;
+    transition: all 0.6s var(--luxury-ease);
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-white;
+    transform: translateX(-101%);
+    transition: transform 0.7s var(--luxury-ease);
+  }
+
+  .btn-primary:hover::before {
+    transform: translateX(0);
+  }
+
+  .btn-primary span {
+    @apply relative z-10;
+  }
+
+  .btn-ghost {
+    @apply text-[0.65rem] tracking-[0.2em] uppercase flex items-center gap-2;
+    color: #b0ada6;
+    transition: all 0.5s var(--luxury-ease);
+  }
+
+  .btn-ghost:hover {
+    color: #fafafa;
+    gap: 0.75rem;
+  }
+
+  .card-hover-zoom img,
+  .card-hover-zoom .card-bg {
+    transition: transform 1s var(--luxury-ease);
+  }
+
+  .card-hover-zoom:hover img,
+  .card-hover-zoom:hover .card-bg {
+    transform: scale(1.06);
+  }
+}
