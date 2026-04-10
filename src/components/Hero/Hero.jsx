@@ -74,12 +74,13 @@ export default function Hero() {
         initial="hidden"
         animate="show"
         style={{ y: imageY, scale: imageScale }}
-        className="absolute right-0 top-0 bottom-0 w-[55%] overflow-hidden"
+        className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] lg:w-[55%] overflow-hidden"
       >
         <HeroImagePlaceholder />
         {/* Gradient mask to blend with left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-transparent" style={{ width: '40%' }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 md:via-transparent to-transparent md:w-[40%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-[#0a0a0a]/20 to-transparent md:bg-none" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" />
       </motion.div>
 
       {/* Gold vertical accent line */}
@@ -99,7 +100,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 1.5, ease: luxuryEase }}
-        className="absolute bottom-24 left-16 font-serif text-[8rem] font-light select-none pointer-events-none"
+        className="absolute bottom-16 left-8 md:bottom-24 md:left-16 font-serif text-[6rem] md:text-[8rem] font-light select-none pointer-events-none opacity-20 md:opacity-100"
         style={{ color: 'rgba(255,255,255,0.025)', lineHeight: 1 }}
       >
         01
@@ -108,7 +109,7 @@ export default function Hero() {
       {/* Main content */}
       <motion.div
         style={{ y: contentY, opacity }}
-        className="relative z-10 px-10 md:px-16 pb-24 max-w-[55%]"
+        className="relative z-10 px-6 sm:px-10 md:px-16 pb-16 md:pb-24 pt-32 w-full max-w-[100%] md:max-w-[55%]"
       >
         <motion.div
           variants={staggerContainer}
@@ -118,21 +119,21 @@ export default function Hero() {
         >
           <motion.p
             variants={fadeSlideUp}
-            className="section-label mb-8"
+            className="section-label mb-6 md:mb-8 text-xs md:text-sm"
           >
             Paris — Autumn Winter 2025
           </motion.p>
 
           {/* Title with clip-path reveal per line */}
           <div
-            className="font-serif leading-[0.93] mb-10"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)', fontWeight: 300 }}
+            className="font-serif leading-[1.0] md:leading-[0.93] mb-8 md:mb-10 text-[3.8rem] sm:text-[4.5rem] md:text-[clamp(4.5rem,8vw,7rem)]"
+            style={{ fontWeight: 300 }}
           >
             {['The Art', 'of ', 'Luxury'].map((line, i) => (
               <motion.span
                 key={i}
                 variants={clipRevealUp}
-                className={`block ${i === 2 ? 'italic text-[#e8d5b0]' : ''}`}
+                className={`block ${i === 2 ? 'italic text-[#e8d5b0] pr-2' : ''}`}
               >
                 {i === 1 ? (
                   <>{line}<em className="italic text-[#e8d5b0]">Silent</em></>
@@ -143,24 +144,24 @@ export default function Hero() {
 
           <motion.div
             variants={fadeLine}
-            className="w-16 h-px mb-8 origin-left"
+            className="w-12 md:w-16 h-px mb-6 md:mb-8 origin-left"
             style={{ background: '#c9a96e' }}
           />
 
           <motion.p
             variants={fadeSlideUp}
-            className="text-[0.85rem] leading-[1.9] text-[#b0ada6] max-w-[360px] mb-12 font-light tracking-wide"
+            className="text-[0.8rem] md:text-[0.85rem] leading-[1.8] md:leading-[1.9] text-[#e0dfdc] md:text-[#b0ada6] max-w-[90%] md:max-w-[360px] mb-10 md:mb-12 font-light tracking-wide text-shadow-sm md:text-shadow-none"
           >
             Where craftsmanship meets quiet confidence. Each piece, a statement without words —
             tailored for those who define culture, not follow it.
           </motion.p>
 
-          <motion.div variants={fadeSlideUp} className="flex items-center gap-8">
-            <a href="#collection" className="btn-primary">
+          <motion.div variants={fadeSlideUp} className="flex flex-wrap items-center gap-6 md:gap-8">
+            <a href="#collection" className="btn-primary text-xs md:text-sm px-6 py-3 md:px-8 md:py-4">
               <span>Explore Collection</span>
-              <span className="text-base">→</span>
+              <span className="text-sm md:text-base">→</span>
             </a>
-            <a href="#lookbook" className="btn-ghost">
+            <a href="#lookbook" className="btn-ghost text-xs md:text-sm">
               View Lookbook <span>↗</span>
             </a>
           </motion.div>
