@@ -117,13 +117,6 @@ export default function Hero() {
           animate="show"
           className="flex flex-col"
         >
-          <motion.p
-            variants={fadeSlideUp}
-            className="section-label mb-6 md:mb-8 text-xs md:text-sm"
-          >
-            Paris — Autumn Winter 2025
-          </motion.p>
-
           {/* Title with clip-path reveal per line */}
           <div
             className="font-serif leading-[1.0] md:leading-[0.93] mb-8 md:mb-10 text-[3.8rem] sm:text-[4.5rem] md:text-[clamp(4.5rem,8vw,7rem)]"
